@@ -87,6 +87,64 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', add_obj_to_code);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('save_code_btn');
+    button.addEventListener('click', save_code);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('open_code_btn');
+    button.addEventListener('change',(event) => loadFile(event));
+});
+
+function loadFile(event, allowedExtensions = ["rlmp"]) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+    if (!allowedExtensions.includes(fileExtension)) {
+        alert("Invalid file type. Allowed extensions: " + allowedExtensions.join(", "));
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        let code_area = document.getElementById('code_shower');
+        code_area.innerHTML = "";
+        code_area.innerHTML = e.target.result;
+        Array.from(code_area.children).forEach(block => {
+            block.addEventListener('click', function() {
+                select_block_and_show_configs(block.id);
+            });
+        });
+        create_the_plus_btn(code_area);
+        
+    };
+    reader.readAsText(file);
+}
+
+function saveFile(content, filename = "code.rlmp") {
+    const blob = new Blob([content], { type: "application/octet-stream" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function save_code() {
+    let data = document.getElementById('code_shower').innerHTML;
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(data, 'text/html');
+    let elementToRemove = doc.getElementById('add_object_script');
+    if (elementToRemove) {
+        elementToRemove.remove();
+    }
+    let newData = doc.body.innerHTML;
+    saveFile(newData);
+}
+
 function create_the_plus_btn(parent) {
     let div = document.createElement("div");
     div.className="btn_mini_plus_arrow";
