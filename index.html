@@ -123,8 +123,9 @@
         <p style="font-size: 25px;"><strong>Ro</strong>Lampa<sub><i style="font-size: 12px;">Alpha</i></sub></p>
         <style>.options_div_up_header {width: 100%;display: flex;justify-content: center;align-items: center;gap: 5px;} .options_div_up_header * {font-size: 20px;padding: 10px;background-color: rgb(243, 243, 243);border-radius: 10px;}</style>
         <div class="options_div_up_header">
-            <p id="open_code_btn">Open</p>
+            <p onclick="document.getElementById('open_code_btn').click();">Open<input id="open_code_btn" type="file" style="display:none;"></p>
             <p id="save_code_btn">Save</p>
+            <p id="tuto_code_btn" style="display:none;">Tutorial</p>
         </div>
         <p id="export_btn" style="font-size: 20px;padding: 10px;border: black solid 1px;border-radius: 10px;">Export</p>
     </header>
