@@ -59,8 +59,8 @@ document.getElementById("export_btn").addEventListener('click', function(){
             let block = JSON.parse(scriptTag.innerText || scriptTag.textContent);
             let prebuild_block_part = block.string_part2add;
             block.properties.forEach(one_config => {
-                prebuild_block_part = prebuild_block_part.replace(`//**${one_config.save_as}**//`,one_config.value);
-                prebuild_block_part = prebuild_block_part.replace("{","'..").replace("}","..'");
+                prebuild_block_part = prebuild_block_part.replaceAll(`//**${one_config.save_as}**//`,one_config.value);
+                prebuild_block_part = prebuild_block_part.replaceAll("{","'..").replace("}","..'");
             });
             lua_builded_code += prebuild_block_part + "<br>";
         }
