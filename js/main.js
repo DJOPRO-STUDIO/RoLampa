@@ -3,14 +3,20 @@ import { blocks } from './blocks.js';
 document.getElementById("export_btn").style.pointerEvents = "none";
 document.getElementById("export_btn").style.opacity = "0.5";
 
+window.addEventListener("beforeunload", (event) => {
+    event.preventDefault();
+});
+
 const observer = new MutationObserver(function(mutationsList, observer) {
     let idk = document.getElementById("code_shower").children.length;
     //console.log(idk);
     if(idk > 1) {
         document.getElementById("export_btn").style.pointerEvents = "auto";
+        document.getElementById("export_btn").style.cursor = "pointer";
         document.getElementById("export_btn").style.opacity = "1";
     }else{
         document.getElementById("export_btn").style.pointerEvents = "none";
+        document.getElementById("export_btn").style.cursor = "none";
         document.getElementById("export_btn").style.opacity = "0.5";
     }
 });
@@ -170,7 +176,7 @@ function create_and_place_the_block(key,id) {
 function create_block(parent,block) {
     let div = document.createElement("div");
     div.id = generateRandomChars(30);
-    div.style="border:black solid 1px;border-radius:10px;padding:4px;margin:2px;";
+    div.style="border:black solid 1px;border-radius:10px;padding:4px;margin:2px;cursor:pointer;";
     div.textContent=block.name;
     parent.appendChild(div);
     return div;
@@ -178,7 +184,7 @@ function create_block(parent,block) {
 
 function create_btn(parent,text,color) {
     let div = document.createElement("div");
-    div.style=`border:${color} solid 2px;border-radius:10px;padding:4px;margin:2px;color:${color};font-weight:bold;`;
+    div.style=`border:${color} solid 2px;border-radius:10px;padding:4px;margin:2px;color:${color};font-weight:bold;cursor:pointer;`;
     div.textContent=text;
     parent.appendChild(div);
     return div;
@@ -244,6 +250,7 @@ function add_block_to_code(block) {
     let code_area = document.getElementById("code_shower");
     let div = create_block(code_area,block);
     let configs = document.createElement("script");
+    div.style.cursor = "pointer";
     configs.id = "config";
     configs.type = "application/json";
     configs.innerHTML = JSON.stringify(block);
