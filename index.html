@@ -101,6 +101,25 @@
             font-size: 25px;
             display: none;
         }
+        .dialog {
+            height: fit-content;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            /*height: 250px;*/
+            padding: 20px;
+            background-color: rgb(252, 252, 252);
+            border: rgb(125, 123, 123) solid 1px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 25px;
+        }
         .notify .code_area_notify {
             text-align: left;
             font-size: 15px;
@@ -121,13 +140,13 @@
     <script type="module" src="js/main.js"></script>
     <header>
         <p style="font-size: 25px;"><strong>Ro</strong>Lampa<sub><i style="font-size: 12px;">Alpha</i></sub></p>
-        <style>.options_div_up_header {width: 100%;display: flex;justify-content: center;align-items: center;gap: 5px;} .options_div_up_header * {font-size: 20px;padding: 10px;background-color: rgb(243, 243, 243);border-radius: 10px;}</style>
+        <style>.options_div_up_header {width: 100%;display: flex;justify-content: center;align-items: center;gap: 5px;} .options_div_up_header * {font-size: 20px;padding: 10px;background-color: rgb(243, 243, 243);border-radius: 10px;cursor: pointer;}</style>
         <div class="options_div_up_header">
             <p onclick="document.getElementById('open_code_btn').click();">Open<input id="open_code_btn" type="file" style="display:none;"></p>
             <p id="save_code_btn">Save</p>
             <p id="tuto_code_btn" style="display:none;">Tutorial</p>
         </div>
-        <p id="export_btn" style="font-size: 20px;padding: 10px;border: black solid 1px;border-radius: 10px;">Export</p>
+        <p id="export_btn" style="font-size: 20px;padding: 10px;border: black solid 1px;border-radius: 10px;cursor:pointer;">Export</p>
     </header>
     <div class="main_dev_code_place" style="margin-bottom: 10px;height: inherit;">
         <section style="width: 50%;text-align: center;font-weight: bolder;border-radius: 10px;background-color: rgb(236, 235, 235);padding: 5px;">Objects</section>
@@ -156,6 +175,18 @@
         <p class="code_area_notify">i</p>
         <style>.btn_close_notify * {display: inline-block;} .btn_close_notify p {width: 100%;}</style>
         <div onclick="document.getElementById('notify').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;">Close</div>
+    </div>
+
+    <div id="dialog" class="dialog">
+        New Partnership !
+        <div style="width: 100%;font-size: 15px;"><!--overflow-y: hidden;-->
+            <img src="https://cdn.discordapp.com/attachments/1343242043945652375/1343246371725115432/my-image_2.png?ex=67bc932b&is=67bb41ab&hm=ab3af20925db0b45339447e55a829e41f8926fb9779691c81d6c936694ebecd4&" alt="Legacy Engine" style="width: 100%;">
+            <p>For the opening of the new service <strong>RoLampa</strong>. We just got a request from a Roblox Game called <strong>Legacy Engine</strong> !
+                <br><br><strong>Legacy Engine</strong> is a game that formely replicates the old roblox (2006-2008)!
+                <br><br>Also you can get the <strong>RoLampa Sign Hat</strong> by doing a quizz on the game and after that you can equip it to your skin !
+                <br><br><a target="_blank" href="https://www.roblox.com/fr/games/15205936662/Legacy-Engine">Link to the Game</a></p>
+        </div>
+        <div onclick="document.getElementById('dialog').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;padding: 5px;cursor: pointer;">Close</div>
     </div>
     
 </body>
