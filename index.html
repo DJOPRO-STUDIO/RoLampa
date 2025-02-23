@@ -92,7 +92,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 300px;
-            height: 250px;
+            height: fit-content;
             padding: 20px;
             background-color: rgb(252, 252, 252);
             border: rgb(125, 123, 123) solid 1px;
@@ -102,7 +102,6 @@
             display: none;
         }
         .dialog {
-            height: fit-content;
             position: fixed;
             display: flex;
             flex-direction: column;
@@ -112,7 +111,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 300px;
-            /*height: 250px;*/
+            height: fit-content;
             padding: 20px;
             background-color: rgb(252, 252, 252);
             border: rgb(125, 123, 123) solid 1px;
@@ -175,7 +174,7 @@
         Code
         <p class="code_area_notify">i</p>
         <style>.btn_close_notify * {display: inline-block;} .btn_close_notify p {width: 100%;}</style>
-        <div onclick="document.getElementById('notify').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;">Close</div>
+        <div style="display:flex;align-items: center;justify-content: center;text-align: center;width: 100%;"><div onclick="document.getElementById('notify').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;padding: 5px;cursor: pointer;width: fit-content;">Close</div></div>
     </div>
 
     <div id="dialog" class="dialog">
@@ -212,7 +211,7 @@
                 }
             </script>
         </div>
-        <div onclick="document.getElementById('dialog').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;padding: 5px;cursor: pointer;">Close</div>
+        <div style="display:flex;align-items: center;justify-content: center;text-align: center;width: 100%;"><div onclick="document.getElementById('dialog').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;padding: 5px;cursor: pointer;width: fit-content;">Close</div></div>
     </div>
     
 </body>
