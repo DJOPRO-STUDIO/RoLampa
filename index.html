@@ -119,6 +119,7 @@
             border-radius: 10px;
             text-align: center;
             font-size: 25px;
+            display: none;
         }
         .notify .code_area_notify {
             text-align: left;
@@ -185,6 +186,31 @@
                 <br><br><strong>Legacy Engine</strong> is a game that formely replicates the old roblox (2006-2008)!
                 <br><br>Also you can get the <strong>RoLampa Sign Hat</strong> by doing a quizz on the game and after that you can equip it to your skin !
                 <br><br><a target="_blank" href="https://www.roblox.com/fr/games/15205936662/Legacy-Engine">Link to the Game</a></p>
+            <p style="font-size: 10px;"><input type="checkbox" name="" id="" onchange="add_showed_partner_cookie('partnership_LegacyEngine0000')">Don't show it again</p>
+            <script>
+                if(getCookie("partnership_LegacyEngine0000") == "") {document.getElementById("dialog").style.display = "block";}
+                
+                function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+                function add_showed_partner_cookie(name){
+                    if(getCookie(name) == "") {
+                        document.cookie = name + "=Watched;"
+                    } 
+                }
+            </script>
         </div>
         <div onclick="document.getElementById('dialog').style.display = 'none';" style="border-radius: 10px;border: red solid 2px;font-weight: bold;color:red;font-size:12px;padding: 5px;cursor: pointer;">Close</div>
     </div>
