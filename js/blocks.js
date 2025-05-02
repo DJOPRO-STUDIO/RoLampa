@@ -72,6 +72,11 @@ export let blocks = {
     { name: "Stop Script Execution", note: "Immediately stop script execution", id: 11, properties: [], string_part2add: "return" }
     ],
     Network: [
-        { "name": "Send HTTP Request", "note": "Makes a GET request", "id": 1, "properties": [{ "name": "URL", "value": "", "save_as": "url" }], "string_part2add": "game:GetService('HttpService'):GetAsync('//**url**//')" }
+    { "name": "Send HTTP Request", "note": "Makes a GET request", "id": 1, "properties": [{ "name": "URL", "value": "", "save_as": "url" }], "string_part2add": "game:GetService('HttpService'):GetAsync('//**url**//')" }
+    ],
+    "discord.rbx": [
+    { "name": "Initialize discord.rbx", "note": "Must be present before using discord.rbx", "id": 1, "properties": [], "string_part2add": "local discord_rbx = require(85961583641003)\nlocal Discord = discord_rbx.Discord\nlocal Webhook = discord_rbx.Webhook\nlocal Embed = discord_rbx.Embed" },
+    { "name": "Add a new Webhook", "note": "Add a new Webhook", "id": 1, "properties": [{ "name": "Name Webhook", "value": "MyWebhook", "save_as": "var_name" },{ "name": "Webhook URL", "value": "", "save_as": "url" }], "string_part2add": "local //**var_name**// = Webhook.new('//**url**//)" },
+    { "name": "Send a message by Webhook", "note": "Send message by Webhook", "id": 1, "properties": [{ "name": "Name Webhook", "value": "MyWebhook", "save_as": "var_name" },{ "name": "Message To Send", "value": "", "save_as": "message_text" },{ "name": "Embed(s) To Send [OPTIONAL]", "value": "", "save_as": "embeds" }], "string_part2add": "//**var_name**//:SendMessage('//**message_text**//',//**embeds**//)" },
     ]
 };
